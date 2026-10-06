@@ -132,10 +132,10 @@ export default function Home() {
               dolore magna aliqua enim ad minim veniam quis nostrud.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="#contact" variant="primary" arrow className="px-7 py-4">
+              <Button href="/contact" variant="primary" arrow className="px-7 py-4">
                 Request a Demo
               </Button>
-              <Button href="#services" variant="outline" className="px-7 py-4">
+              <Button href="/services" variant="outline" className="px-7 py-4">
                 Explore Services
               </Button>
             </div>
@@ -253,7 +253,7 @@ export default function Home() {
               ))}
             </ul>
             <div className="mt-10">
-              <Button href="#services" variant="secondary" arrow>
+              <Button href="/about" variant="secondary" arrow>
                 Learn more
               </Button>
             </div>
@@ -380,7 +380,7 @@ export default function Home() {
                 Built for the <span className="text-gradient">toughest jobs</span>
               </h2>
             </div>
-            <Button href="#" variant="secondary" arrow>
+            <Button href="/case-studies" variant="secondary" arrow>
               All case studies
             </Button>
           </Reveal>

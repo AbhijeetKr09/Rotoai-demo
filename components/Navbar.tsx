@@ -6,24 +6,27 @@ import Logo from "./Logo";
 import Button from "./Button";
 
 const servicesLinks = [
-  { label: "Lorem Automation", href: "#services" },
-  { label: "Ipsum Integration", href: "#services" },
-  { label: "Dolor Analytics", href: "#services" },
-  { label: "Sit Consulting", href: "#services" },
+  { label: "Lorem Automation", href: "/services/lorem-automation" },
+  { label: "Ipsum Integration", href: "/services/ipsum-integration" },
+  { label: "Dolor Analytics", href: "/services/dolor-analytics" },
+  { label: "Sit Consulting", href: "/services/sit-consulting" },
 ];
 
 const resourceLinks = [
-  { label: "Blog", href: "#" },
-  { label: "Case Studies", href: "#work" },
-  { label: "Industries", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Industries", href: "/industries" },
 ];
 
 const mobileLinks = [
-  ["About", "#about"],
-  ["Services", "#services"],
-  ["Case Studies", "#work"],
-  ["How it works", "#process"],
-  ["Careers", "#"],
+  ["About", "/about"],
+  ["Services", "/services"],
+  ["Blog", "/blog"],
+  ["Case Studies", "/case-studies"],
+  ["Industries", "/industries"],
+  ["How it works", "/#process"],
+  ["Careers", "/careers"],
+  ["Contact", "/contact"],
 ];
 
 const linkClass =
@@ -40,21 +43,21 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          <Link href="#about" className={linkClass}>
+          <Link href="/about" className={linkClass}>
             About
           </Link>
-          <Dropdown label="Services" items={servicesLinks} />
+          <Dropdown label="Services" href="/services" items={servicesLinks} />
           <Dropdown label="Resources" items={resourceLinks} />
-          <Link href="#process" className={linkClass}>
+          <Link href="/#process" className={linkClass}>
             How it works
           </Link>
-          <Link href="#" className={linkClass}>
+          <Link href="/careers" className={linkClass}>
             Careers
           </Link>
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="#contact" variant="primary" className="px-5 py-2.5 text-xs">
+          <Button href="/contact" variant="primary" className="px-5 py-2.5 text-xs">
             Request a Demo
           </Button>
         </div>
@@ -90,7 +93,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <Button href="#contact" variant="primary" className="mt-4 w-full">
+          <Button href="/contact" variant="primary" className="mt-4 w-full">
             Request a Demo
           </Button>
         </div>
@@ -101,14 +104,16 @@ export default function Navbar() {
 
 function Dropdown({
   label,
+  href,
   items,
 }: {
   label: string;
+  href?: string;
   items: { label: string; href: string }[];
 }) {
   return (
     <div className="group relative">
-      <button className={`${linkClass} flex items-center gap-1`}>
+      <Link href={href ?? "#"} className={`${linkClass} flex items-center gap-1`}>
         {label}
         <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none">
           <path
@@ -119,7 +124,7 @@ function Dropdown({
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </Link>
       <div className="invisible absolute left-1/2 top-full w-56 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
         <div className="rounded-2xl border border-navy-900/5 bg-white p-2 shadow-soft">
           {items.map((item) => (

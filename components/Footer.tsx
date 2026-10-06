@@ -3,25 +3,25 @@ import Container from "./Container";
 import Logo from "./Logo";
 
 const company = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#work" },
-  { label: "Careers", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const resources = [
-  { label: "Blogs", href: "#" },
-  { label: "Case Studies", href: "#work" },
+  { label: "Blog", href: "/blog" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Brochure", href: "#" },
   { label: "FAQ", href: "#" },
 ];
 
 const services = [
-  "Lorem Automation",
-  "Ipsum Integration",
-  "Dolor Analytics",
-  "Sit Consulting",
+  { label: "Lorem Automation", href: "/services/lorem-automation" },
+  { label: "Ipsum Integration", href: "/services/ipsum-integration" },
+  { label: "Dolor Analytics", href: "/services/dolor-analytics" },
+  { label: "Sit Consulting", href: "/services/sit-consulting" },
 ];
 
 export default function Footer() {
@@ -83,12 +83,12 @@ export default function Footer() {
             </h4>
             <ul className="mt-5 space-y-3">
               {services.map((s) => (
-                <li key={s}>
+                <li key={s.label}>
                   <Link
-                    href="#services"
+                    href={s.href}
                     className="text-sm text-white/60 transition hover:text-white"
                   >
-                    {s}
+                    {s.label}
                   </Link>
                 </li>
               ))}

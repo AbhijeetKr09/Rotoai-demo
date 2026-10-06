@@ -25,7 +25,7 @@ export default function CTABand() {
                 dolore magna aliqua.
               </p>
             </div>
-            <Button href="#contact" variant="light" arrow className="shrink-0 px-8 py-4">
+            <Button href="/contact" variant="light" arrow className="shrink-0 px-8 py-4">
               Request a Demo
             </Button>
           </div>
